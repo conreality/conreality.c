@@ -38,33 +38,33 @@ typedef enum {
 
 typedef struct _cr_context* cr_context;
 
-cr_status aiCreateContext(uint64_t version, uint64_t flags, cr_context* context);
+cr_status crCreateContext(uint64_t version, uint64_t flags, cr_context* context);
 
-cr_status aiEnumerateDrivers(cr_context context, ...); // TODO: parameters
+cr_status crEnumerateDrivers(cr_context context, ...); // TODO: parameters
 
-cr_status aiEnumerateFeatures(cr_context context, ...); // TODO: parameters
+cr_status crEnumerateFeatures(cr_context context, ...); // TODO: parameters
 
-cr_status aiEnumerateModules(cr_context context, ...); // TODO: parameters
+cr_status crEnumerateModules(cr_context context, ...); // TODO: parameters
 
-uint64_t aiGetVersion();
+uint64_t crGetVersion();
 
-const char* aiGetVersionString();
+const char* crGetVersionString();
 
-bool aiIsDriverLoaded(cr_context context, const char* id);
+bool crIsDriverLoaded(cr_context context, const char* id);
 
-bool aiIsFeatureEnabled(cr_context context, const char* id);
+bool crIsFeatureEnabled(cr_context context, const char* id);
 
-bool aiIsModuleLoaded(cr_context context, const char* id);
+bool crIsModuleLoaded(cr_context context, const char* id);
 
-cr_status aiLoadDriver(cr_context context, const char* id);
+cr_status crLoadDriver(cr_context context, const char* id);
 
-cr_status aiLoadModule(cr_context context, const char* id);
+cr_status crLoadModule(cr_context context, const char* id);
 
-void aiRegisterAllocatorCallbacks(cr_context context, void* (*realloc)(void*, size_t), void (*free)(void*));
+void crRegisterAllocatorCallbacks(cr_context context, void* (*realloc)(void*, size_t), void (*free)(void*));
 
-void aiRegisterErrorCallback(cr_context context, void (*)(cr_status, const char*));
+void crRegisterErrorCallback(cr_context context, void (*)(cr_status, const char*));
 
-cr_status aiReleaseContext(cr_context* context);
+cr_status crReleaseContext(cr_context* context);
 
 #ifdef __cplusplus
 } // extern "C"
