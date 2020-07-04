@@ -13,6 +13,6 @@ jobs:
       - name: Record the GCC version
         run: gcc --version
       - name: Check syntax using Clang
-        run: clang -x c-header -std=c11 -Wall -Wextra -fsyntax-only conreality.h
+        run: make lint CC=clang
       - name: Check syntax using GCC
-        run: gcc -x c-header -std=c11 -Wall -Wextra -fsyntax-only conreality.h
+        run: make lint CC=gcc
